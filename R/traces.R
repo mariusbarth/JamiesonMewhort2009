@@ -40,5 +40,6 @@ make_traces <-function(vectors, L = .7, ...) {
   }
   y <- do.call("cbind", y)
   y[is.na(y)] <- 0
-  y
+
+  y * sample(c(0, 1), size = length(y), replace = TRUE, prob = c(1 - L, L))
 }
